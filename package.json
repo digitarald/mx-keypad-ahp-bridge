@@ -1,0 +1,49 @@
+{
+  "name": "mx-keypad-ahp-bridge",
+  "version": "0.1.0",
+  "description": "A direct-HID bridge that turns the Logitech MX Creative Keypad into an Agent Host Protocol session console.",
+  "private": true,
+  "license": "MIT",
+  "author": "Harald Kirschner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitarald/mx-keypad-ahp-bridge.git"
+  },
+  "homepage": "https://github.com/digitarald/mx-keypad-ahp-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/digitarald/mx-keypad-ahp-bridge/issues"
+  },
+  "keywords": [
+    "agent-host-protocol",
+    "ahp",
+    "logitech",
+    "mx-creative-console",
+    "hid"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "check": "npm run build && npm test",
+    "compile": "tsc --project tsconfig.build.json",
+    "service:install": "npm run compile && node service/install.mjs",
+    "service:uninstall": "node service/uninstall.mjs",
+    "start": "tsx src/main.ts",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@microsoft/agent-host-protocol": "0.9.0",
+    "@vscode/codicons": "0.0.46-24",
+    "node-hid": "3.4.0",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "@types/ws": "8.18.1",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "ws": "8.21.3"
+  }
+}
